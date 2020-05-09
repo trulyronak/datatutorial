@@ -23,7 +23,11 @@ csv += "\n"
 for (const id in records) {
     csv += `${id}`
     for (const day of days) {
-        const value = records[id][day] || 0;
+        let value = records[id][day] || 0;
+        if (value > 0) {
+            value = 1;
+        }
+        
         csv += `,${value}`
     }
     csv += "\n"
